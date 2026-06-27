@@ -30,10 +30,14 @@ st.markdown(
 # =========================
 # DATA LADEN
 # =========================
-df = pd.read_excel(
-    "basketball_FULL_dataset_2025_2026.xlsx",
-    sheet_name="Merged"
-)
+@st.cache_data
+def load_data():
+    return pd.read_excel(
+        "basketball_FULL_dataset_2025_2026.xlsx",
+        sheet_name="Merged"
+    )
+
+df = load_data()
 
 # =========================
 # HULPFUNCTIES
